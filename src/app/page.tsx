@@ -1,9 +1,12 @@
+import { Board as BoardComponent } from "@/components/board/board";
 import { Board } from "@/domain/board";
 
 export default function Home() {
   const board = new Board();
 
-  console.log(board.positions);
-
-  return <main></main>;
+  return (
+    <main className="h-screen flex justify-center items-center">
+      <BoardComponent positions={board.positions} />
+    </main>
+  );
 }

@@ -10,12 +10,18 @@ class Board {
       this.positions[index] = new Array(Board.DIMENSION).fill(null);
     });
 
-    for (let i = 0; i < Board.DIMENSION; i++) {
-      for (let j = 0; j < Board.DIMENSION; j++) {
-        const isOdd = verifyIsOdd(j);
+    for (let row = 0; row < Board.DIMENSION; row++) {
+      let isOdd: boolean;
 
-        this.positions[i][j] = isOdd ? 1 : 0;
+      for (let column = 0; column < Board.DIMENSION; column++) {
+        isOdd = verifyIsOdd(column);
+
+        this.positions[row][column] = isOdd ? 1 : 0;
       }
+
+      isOdd = verifyIsOdd(row);
+
+      if (isOdd) this.positions[row] = this.positions[row].reverse();
     }
   }
 
